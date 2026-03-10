@@ -11,9 +11,10 @@
 body{
 font-family: Arial;
 text-align:center;
-background:#0f172a;
+background: linear-gradient(180deg, #3b0a0a, #0f172a);
 color:white;
 padding:30px;
+min-height:100vh;
 }
 
 .container{
@@ -77,6 +78,137 @@ border-radius:15px;
 background:#1e293b;
 border:2px solid #22c55e;
 }
+
+.degree-container h1{
+margin:0;
+font-size:18px;
+letter-spacing:2px;
+opacity:0.8;
+}
+
+.degree-container h2{
+margin:5px 0 0 0;
+font-size:28px;
+color:#22c55e;
+}
+
+.hidden{
+display:none;
+}
+.map-link{
+display:inline-block;
+margin-top:10px;
+padding:10px 15px;
+background:#22c55e;
+color:white;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+}
+.corona{
+position:fixed;
+top:15%;
+left:35%;
+transform:translate(-50%,-50%);
+width:500px;
+opacity:0.9;
+pointer-events:none;
+z-index:-1;
+}
+
+</style>
+</head>
+
+<body>
+
+<img src="cappello.png" class="corona">
+
+<div class="container">
+
+<div class="container">
+
+<h2 id="loadingText">Caricamento invito...</h2>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div id="invito" class="hidden">
+
+<h1>CARICAMENTO COMPLETATO ✅</h1>
+
+<h2>23 Marzo 2026</h2>
+
+<div class="degree-container">
+
+<h1>LAUREA in</h1>
+
+<h2>INGEGNERIA INFORMATICA</h2>
+
+
+<div class="sections">
+
+  <div class="card">
+    <h3>🎓 Proclamazione Laurea</h3>
+    <p><strong>Luogo:</strong>  Università di Roma Tor Vergata, palazzo didattica, Aula Convegni</p>
+    <p><strong>Ora:</strong> 10:30</p>
+ <a class="map-link"
+     href="https://maps.app.goo.gl/q646VjiWtiAmPFJs5"
+     target="_blank">
+     🚗 Apri parcheggio su Maps
+  </a>
+  </div>
+
+  <div class="card">
+  <h3>🍴 Pranzo</h3>
+
+  <p><strong>Ristorante:</strong> Nome Ristorante</p>
+  <p><strong>Ora:</strong> 13:00</p>
+
+  <a class="map-link"
+     href="https://maps.google.com/?q=Nome+Ristorante+Roma"
+     target="_blank">
+     📍 Apri su Google Maps
+  </a>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+</div>
+
+</div>
+<script>
+
+let bar = document.getElementById("bar");
+let width = 0;
+
+let loading = setInterval(function(){
+
+if(width >= 100){
+clearInterval(loading);
+
+document.getElementById("loadingText").style.display="none";
+document.querySelector(".progress").style.display="none";
+
+document.getElementById("invito").classList.remove("hidden");
+}
+
+width++;
+bar.style.width = width + "%";
+
+},40);
+
+</script>
+
+</body>
+
+</html>}
 
 .degree-container h1{
 margin:0;
@@ -194,3 +326,4 @@ bar.style.width = width + "%";
 </body>
 
 </html>
+
